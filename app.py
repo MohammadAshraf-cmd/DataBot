@@ -37,8 +37,8 @@ if user_input:
     # Append the chatbot's response to the session state
     st.session_state['messages'].append({"role": "assistant", "content": response})
 
-    # Clear the user input after submission (optional for a cleaner UI)
-    st.experimental_rerun()
+    # Clear the input field after submission by setting the query parameter
+    st.experimental_set_query_params(user_input="")
 
 # Display the conversation history
 for msg in st.session_state['messages']:
